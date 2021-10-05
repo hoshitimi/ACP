@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @point.user_id %>
+</p>
+
+<p>
+  <strong>Fluctuation:</strong>
+  <%= @point.fluctuation %>
+</p>
+
+<p>
+  <strong>Summary:</strong>
+  <%= @point.summary %>
+</p>
+
+<%= link_to 'Edit', edit_point_path(@point) %> |
+<%= link_to 'Back', points_path %>

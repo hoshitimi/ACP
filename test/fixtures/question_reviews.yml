@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  question_code: 1
+  user_code: 1
+  contents: MyString
+  best_flag: 1
+
+two:
+  question_code: 1
+  user_code: 1
+  contents: MyString
+  best_flag: 1

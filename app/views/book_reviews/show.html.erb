@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @book_review.comment_id %>
+</p>
+
+<p>
+  <strong>Book:</strong>
+  <%= @book_review.book_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @book_review.user_id %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @book_review.comment %>
+</p>
+
+<p>
+  <strong>Good:</strong>
+  <%= @book_review.good %>
+</p>
+
+<p>
+  <strong>Flag:</strong>
+  <%= @book_review.flag %>
+</p>
+
+<%= link_to 'Edit', edit_book_review_path(@book_review) %> |
+<%= link_to 'Back', book_reviews_path %>

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Question code:</strong>
+  <%= @question_review.question_code %>
+</p>
+
+<p>
+  <strong>User code:</strong>
+  <%= @question_review.user_code %>
+</p>
+
+<p>
+  <strong>Contents:</strong>
+  <%= @question_review.contents %>
+</p>
+
+<p>
+  <strong>Best flag:</strong>
+  <%= @question_review.best_flag %>
+</p>
+
+<%= link_to 'Edit', edit_question_review_path(@question_review) %> |
+<%= link_to 'Back', question_reviews_path %>
