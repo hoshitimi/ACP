@@ -2,6 +2,13 @@
 
 <h1>Book Reviews</h1>
 
+<%= form_tag('/books_search') do %>
+  <p>
+  書籍名か著者名
+  <br>
+  <%= text_field_tag 'searh[title]' %><%= submit_tag '検索' %>
+  </p>
+  <% end %>
 <table>
   <thead>
     <tr>

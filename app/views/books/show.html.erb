@@ -1,34 +1,20 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>User:</strong>
-  <%= @book.user_id %>
-</p>
-
-<p>
-  <strong>Isbn:</strong>
-  <%= @book.isbn %>
-</p>
-
-<p>
-  <strong>Title:</strong>
+  <strong>書籍名:</strong>
   <%= @book.title %>
 </p>
 
 <p>
-  <strong>Author name:</strong>
+  <strong>著者名:</strong>
   <%= @book.author_name %>
 </p>
 
 <p>
-  <strong>Book number:</strong>
+  <strong>分類番号:</strong>
   <%= @book.book_number %>
 </p>
 
-<p>
-  <strong>Flag:</strong>
-  <%= @book.flag %>
-</p>
 
-<%= link_to 'Edit', edit_book_path(@book) %> |
-<%= link_to 'Back', books_path %>
+<%= link_to '削除', edit_book_path(@book) %> |
+<%= link_to '戻る', books_path %>

@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  post '/books_search', to: 'home#search'
+  post '/', to: 'home#search'
   resources :books
   resources :users
   resources :questions
