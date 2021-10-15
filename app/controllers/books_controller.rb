@@ -56,6 +56,15 @@ class BooksController < ApplicationController
     end
   end
 
+  def search
+    if params[:search][:title].present?
+      @books = Book.where("title like '%" + params[:search][:title] + "%'").order(:created_at => "desc")
+    else
+       @books = Book.all.order(:created_at => "desc")
+    end
+    render :index
+  end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_book
@@ -66,4 +75,5 @@ class BooksController < ApplicationController
     def book_params
       params.require(:book).permit(:user_id, :isbn, :title, :author_name, :book_number, :flag)
     end
+    
 end
