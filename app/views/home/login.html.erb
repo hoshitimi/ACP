@@ -1,0 +1,6 @@
+<h1>ログイン</h1>
+<%= form_tag({ :controller => 'home', :action => 'login_check' },
+{ :method => :postlogin_check}) do %>
+    ID：<%= text_field_tag 'user_id' %>
+    <p>パスワード ： <%= text_field_tag 'password' %></p><%= submit_tag 'ログイン' %>
+<% end %>

@@ -12,34 +12,30 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :user_id %>
-    <%= form.number_field :user_id %>
-  </div>
-
-  <div class="field">
     <%= form.label :isbn %>
     <%= form.number_field :isbn %>
   </div>
 
   <div class="field">
-    <%= form.label :title %>
+    <%= form.label :書籍名 %>
     <%= form.text_field :title %>
   </div>
 
   <div class="field">
-    <%= form.label :author_name %>
+    <%= form.label :著者名 %>
     <%= form.text_field :author_name %>
   </div>
 
   <div class="field">
-    <%= form.label :book_number %>
+    <%= form.label :分類番号 %>
     <%= form.number_field :book_number %>
   </div>
 
   <div class="field">
-    <%= form.label :flag %>
-    <%= form.check_box :flag %>
+    <%= form.label :レビュー %>
+    <%= form.text_field :comment %>
   </div>
+  <th>レビューは50文字以上書いてください</th>
 
   <div class="actions">
     <%= form.submit %>
