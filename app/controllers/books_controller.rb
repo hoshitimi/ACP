@@ -1,9 +1,8 @@
 class BooksController < ApplicationController
   before_action :set_book, only: %i[ show edit update destroy ]
-
-  # GET /books or /books.json
+  # GET /books or /
   def index
-    @books = Book.all
+    @books = Book.all  
   end
 
   # GET /books/1 or /books/1.json
@@ -57,11 +56,18 @@ class BooksController < ApplicationController
   end
 
   def search
-    if params[:search][:title].present?
+    if params[:search][:title].present? 
       @books = Book.where("title like '%" + params[:search][:title] + "%'").order(:created_at => "desc")
     else
        @books = Book.all.order(:created_at => "desc")
     end
+
+    if params[:search][:author_name].present?
+      @books = Book.where("author_name like '%" + params[:search][:author_name] + "%'").order(:created_at => "desc")
+    else
+      @books = Book.all.order(:created_at => "desc")
+    end
+
     render :index
   end
   
