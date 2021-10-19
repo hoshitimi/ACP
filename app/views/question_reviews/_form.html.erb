@@ -12,17 +12,17 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :question_code %>
-    <%= form.number_field :question_code %>
+    <%= form.label :質問のタイトル %>
+    <%= form.select :question_code, Question.all.map { |q| [q.title, q.id] } %>
   </div>
 
   <div class="field">
-    <%= form.label :user_code %>
+    <%= form.label :ユーザーＩＤ %>
     <%= form.number_field :user_code %>
   </div>
 
   <div class="field">
-    <%= form.label :contents %>
+    <%= form.label :内容 %>
     <%= form.text_field :contents %>
   </div>
 

@@ -1,10 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<center><h1>しつもんひろば</h1></center><br>
-<center><%= link_to '質問をする', new_question_path %></center><br>
-
 <center>
-  <table>
+  <h1>しつもんひろば</h1><br>
+  <p><%= link_to '質問をする', new_question_path %><br></p>
+
+<p>
+  <table border="1">
     <thead>
       <tr>
         <th>ユーザー</th>
@@ -22,11 +23,12 @@
           <td><%= question.category %></td>
           <td><%= link_to '詳細', question %></td>
           <td><%= link_to '編集', edit_question_path(question) %></td>
-          <td><%= link_to '削除', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to '削除', question, method: :delete, data: { confirm: '本当に削除しますか？' } %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
+</p>
 </center>
 
 <br>
