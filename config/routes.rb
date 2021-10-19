@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get 'home/top'
+  get 'home/kanri'
+  get 'home/login'
+  post 'home/login_check'
+  post '/books_search', to: 'home#search'
   get 'home/kanri'
   get 'home/login'
   post 'home/login_check'
