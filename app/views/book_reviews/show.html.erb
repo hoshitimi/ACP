@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Comment:</strong>
+  <strong>コメント：</strong>
   <%= @book_review.comment_id %>
 </p>
 
@@ -11,24 +11,24 @@
 </p>
 
 <p>
-  <strong>User:</strong>
+  <strong>User：</strong>
   <%= @book_review.user_id %>
 </p>
 
 <p>
-  <strong>Comment:</strong>
+  <strong>レビュー:</strong>
   <%= @book_review.comment %>
 </p>
 
 <p>
-  <strong>Good:</strong>
+  <strong>good数:</strong>
   <%= @book_review.good %>
 </p>
 
 <p>
-  <strong>Flag:</strong>
+  <strong>承認:</strong>
   <%= @book_review.flag %>
 </p>
 
-<%= link_to 'Edit', edit_book_review_path(@book_review) %> |
-<%= link_to 'Back', book_reviews_path %>
+<%= link_to '編集', edit_book_review_path(@book_review) %> |
+<%= link_to '戻る', book_reviews_path %>
