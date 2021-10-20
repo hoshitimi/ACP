@@ -15,5 +15,8 @@
       <%= message %>
     <% end %>
     <%= yield %>
+    <% if session[:login_id].present? && session[:login_user].present? %>
+      <%= button_to 'ログアウト', {controller: 'home', action: 'logout'} ,{} %>
+    <% end %>
   </body>
 </html>

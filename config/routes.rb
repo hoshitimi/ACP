@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'home/kanri'
   get 'home/login'
   post 'home/login_check'
+  post 'home/logout'
 
   post '/books_search', to:"home#search"
   post '/', to: 'home#search'
