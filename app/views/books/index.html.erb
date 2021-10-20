@@ -4,9 +4,13 @@
 
 <%= form_tag('/books_search') do %>
   <p>
-  書籍名(部分一致)
+  書籍名
   <br>
-  <%= text_field_tag 'search[title]' %><%= submit_tag '検索' %>
+  <%= text_field_tag 'search[title]',session[:title] %><%= submit_tag '検索' %>
+  <br>
+  著者名
+  <br>
+  <%= text_field_tag 'search[author_name]',session[:author_name] %><%= submit_tag '検索' %>
   </p>
   <% end %>
 <table>
@@ -24,8 +28,8 @@
         <td><%= book.title %></td>
         <td><%= book.author_name %></td>
         <td><%= link_to '詳細', book %></td>
-        <td><%= link_to 'Edit', edit_book_path(book) %></td>
-        <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '編集', edit_book_path(book) %></td>
+        <td><%= link_to '削除', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
