@@ -1,24 +1,36 @@
+<center>
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>User code:</strong>
+  <strong>ユーザーID:</strong>
   <%= @question.user_code %>
 </p>
 
 <p>
-  <strong>Category:</strong>
+  <strong>カテゴリ:</strong>
   <%= @question.category %>
 </p>
 
 <p>
-  <strong>Title:</strong>
+  <strong>タイトル:</strong>
   <%= @question.title %>
 </p>
 
 <p>
-  <strong>Contents:</strong>
+  <strong>内容:</strong>
   <%= @question.contents %>
 </p>
 
-<%= link_to 'Edit', edit_question_path(@question) %> |
-<%= link_to 'Back', questions_path %>
+<p><b>コメント</b></p>
+<% @question_reviews.each do |q| %>
+  <p>
+  <%= q.created_at %>
+  <br>
+  <%= q.contents %>
+  </p>
+<% end %>
+
+<%= link_to 'しつもんひろばへ戻る', questions_path %><br>
+
+<a href = 'http://localhost:3000/question_reviews/new'>質問に回答する</a>
+</center>
