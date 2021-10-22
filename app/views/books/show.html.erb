@@ -15,6 +15,22 @@
   <%= @book.book_number %>
 </p>
 
+<%=  form_tag('/comments') do %>
+  <%= hidden_field :comment, :book_id %>
+  <p>
+  <%= text_field :comment, :comment %>
+  <%= submit_tag "コメント追加" %>
+  </p>
+<% end %>
+
+<% @book_reviews.each do |c| %>
+  <p>
+  <%= c.user_id %>
+  <br>
+  <%= c.comment %>
+  </p>
+<% end %>
+
 <%= link_to '新規レビュー',new_book_path %>
 <%= link_to '削除', edit_book_path(@book) %> |
 <%= link_to '戻る', books_path %>

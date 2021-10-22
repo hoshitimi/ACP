@@ -12,33 +12,38 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :レビューのid %>
+    <%= form.label "レビューのid" %>
     <%= form.number_field :comment_id %>
   </div>
 
   <div class="field">
-    <%= form.label : 本のid %>
+    <%= form.label "本のid" %>
     <%= form.number_field :book_id %>
   </div>
 
   <div class="field">
-    <%= form.label :  ユーザーのid %>
+    <%= form.label "ユーザーのid" %>
     <%= form.number_field :user_id %>
   </div>
 
   <div class="field">
-    <%= form.label :レビュー %>
+    <%= form.label "レビュー" %>
     <%= form.text_field :comment %>
   </div>
 
   <div class="field">
-    <%= form.label :good数 %>
+    <%= form.label "good数" %>
     <%= form.number_field :good %>
   </div>
 
   <div class="field">
-    <%= form.label :承認 %>
+    <%= form.label "承認" %>
     <%= form.check_box :flag %>
+  </div>
+
+  <div class="field">
+    <%= form.label "登録日時"%>
+    <%= form.number_field created_at %>
   </div>
 
   <div class="actions">

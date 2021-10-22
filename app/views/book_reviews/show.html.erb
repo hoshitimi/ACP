@@ -30,5 +30,11 @@
   <%= @book_review.flag %>
 </p>
 
+<p>
+  <strong>登録日時:</strong>
+  <%= @book_review.created_at %>
+</p>
+
+
 <%= link_to '編集', edit_book_review_path(@book_review) %> |
 <%= link_to '戻る', book_reviews_path %>

@@ -7,6 +7,7 @@ class BooksController < ApplicationController
 
   # GET /books/1 or /books/1.json
   def show
+    @book_reviews = BookReview.where(book_id: params[:id])
   end
 
   # GET /books/new
@@ -63,9 +64,9 @@ class BooksController < ApplicationController
     end
 
     if params[:search][:author_name].present?
-      @books = Book.where("author_name like '%" + params[:search][:author_name] + "%'").order(:created_at => "desc")
+      @books = @books.where("author_name like '%" + params[:search][:author_name] + "%'").order(:created_at => "desc")
     else
-      @books = Book.all.order(:created_at => "desc")
+      @books = @books.all.order(:created_at => "desc")
     end
 
     render :index
