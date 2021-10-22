@@ -15,11 +15,8 @@
       <%= message %>
     <% end %>
     <%= yield %>
-    <% if session[:login_id].present? && session[:login_user].present? %>
+    <% if session[:login_id].present? && session[:login_user_acount].present? %>
       <%= button_to 'ログアウト', {controller: 'home', action: 'logout'} ,{} %>
-    <% end %>
-    <% if session[:authority]==1 %>
-      <%= link_to '管理者画面', home_kanri_path %>
     <% end %>   
   </body>
 </html>
