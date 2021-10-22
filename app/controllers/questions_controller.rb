@@ -8,6 +8,7 @@ class QuestionsController < ApplicationController
 
   # GET /questions/1 or /questions/1.json
   def show
+    @question_reviews = QuestionReview.where(question_code: params[:id])
   end
 
   # GET /questions/new

@@ -2,7 +2,7 @@
 
 <center>
   <h1>しつもんひろば</h1><br>
-  <p><%= link_to '質問をする', new_question_path %><br></p>
+  <p><%= button_to '質問をする', {controller: 'questions', action: 'new'}, {method: :get} %><br></p>
 
 <p>
   <table border="1">

@@ -21,7 +21,15 @@
   <%= @question.contents %>
 </p>
 
-<%= link_to '質問を編集する', edit_question_path(@question) %> |
+<p><b>コメント</b></p>
+<% @question_reviews.each do |q| %>
+  <p>
+  <%= q.created_at %>
+  <br>
+  <%= q.contents %>
+  </p>
+<% end %>
+
 <%= link_to 'しつもんひろばへ戻る', questions_path %><br>
 
 <a href = 'http://localhost:3000/question_reviews/new'>質問に回答する</a>
