@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h1>ポイント状況一覧</h1>
-<h2>あなたの現在のポイントは pです</h2>
+<h2>あなたの現在のポイント数</h2>
 
 <table>
   <thead>
@@ -19,9 +19,9 @@
         <td><%= point.user_id %></td>
         <td><%= point.fluctuation %></td>
         <td><%= point.summary %></td>
-        <td><%= link_to 'Show', point %></td>
-        <td><%= link_to 'Edit', edit_point_path(point) %></td>
-        <td><%= link_to 'Destroy', point, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '詳細', point %></td>
+        <td><%= link_to '編集', edit_point_path(point) %></td>
+        <td><%= link_to '削除', point, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
