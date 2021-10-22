@@ -13,18 +13,20 @@ class HomeController < ApplicationController
     @password = params[:password]
     @user = User.find_by(user_id: @user_id, password: @password)
     if  @user.present?
-      logger.debug("------------------1--------------------")
       session[:login_id] = @user.user_id
       session[:login_user] = @user.user_acount
+      session[:authority] = @user.authority      
       redirect_to home_top_path
     else
-      logger.debug("------------------2--------------------")
-        render :login, layout: nil
-        flash.now[:error] = "アカウントまたはパスワードが正しくありません"
+      flash.now[:error] = "アカウントまたはパスワードが正しくありません"
+      render :login
       end
   end
 
   def logout
+    reset_session      
+    flash.now[:error] = "ログアウトしました。"
+    render :login   
   end
 
 end
