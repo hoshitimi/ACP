@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h1>ポイント状況一覧</h1>
-<h2>あなたの現在のポイント数：<%= session[:login_user_point] %></h2>
+<h2><%=session[:login_user_acount] %>の現在のポイント数：<%= session[:login_user_point] %></h2>
 
 <table>
   <thead>
@@ -28,5 +28,4 @@
 </table>
 
 <br>
-<%= link_to '新しいポイント状況追加', new_point_path %>
 <p><%= link_to 'ホーム画面へ', home_top_path %></p>

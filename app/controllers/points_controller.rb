@@ -22,9 +22,14 @@ class PointsController < ApplicationController
   # POST /points or /points.json
   def create
     @point = Point.new(point_params)
+    @user = User.find_by(user_id: @point.user_id)
 
     respond_to do |format|
       if @point.save
+        # ユーザーデータの更新
+        @user_point = @user.point + @point.fluctuation
+        @user.update(point: @user_point)
+        session[:login_user_point] = @user_point
         format.html { redirect_to @point, notice: "Point was successfully created." }
         format.json { render :show, status: :created, location: @point }
       else
