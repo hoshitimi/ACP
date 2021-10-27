@@ -57,6 +57,15 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def search
+    if params[:search][:title].present?
+      @questions = Question.where("title like '%" + params[:search][:title] + "%'").order(:created_at => "desc")
+    else
+      @questions = Question.all.order(:created_at => "desc")
+    end
+    render :index
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_question
@@ -67,4 +76,5 @@ class QuestionsController < ApplicationController
     def question_params
       params.require(:question).permit(:user_code, :category, :title, :contents)
     end
+
 end

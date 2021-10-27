@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :question_categories
   get 'home/top'
   get 'home/kanri'
   get 'home/login'
@@ -11,6 +12,8 @@ Rails.application.routes.draw do
 
   post '/books_search', to:"books#search"
   post '/', to: 'books#search'
+  post '/questions_search', to:"questions#search"
+  post '/', to: 'questions#search'
   resources :books
   resources :users
   resources :book_reviews

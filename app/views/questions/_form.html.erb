@@ -19,7 +19,6 @@
   <div class="field">
     <%= form.label "カテゴリ" %>
     <%= form.text_field :category %>
-    <%= form.select :question_code, Question.all.map { |q| [q.category, q.id] } %>
   </div>
 
   <div class="field">
