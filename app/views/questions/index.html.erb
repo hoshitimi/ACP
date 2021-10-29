@@ -26,9 +26,8 @@
       <% @questions.each do |question| %>
         <tr>
           <td><%= question.user_code %></td>
-          <td><%= question.title %></td>
+          <td><%= link_to question.title, question %></td>
           <td><%= question.category %></td>
-          <td><%= link_to '詳細', question %></td>
           <td><%= link_to '編集', edit_question_path(question) %></td>
           <td><%= link_to '削除', question, method: :delete, data: { confirm: '本当に削除しますか？' } %></td>
         </tr>

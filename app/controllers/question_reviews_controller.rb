@@ -21,17 +21,20 @@ class QuestionReviewsController < ApplicationController
 
   # POST /question_reviews or /question_reviews.json
   def create
-    @question_review = QuestionReview.new(question_review_params)
+    @question_review = QuestionReview.new
+    @question_review.question_code = params[:contents][:question_code]
+    @question_review.contents = params[:contents][:contents]
 
     respond_to do |format|
       if @question_review.save
-        format.html { redirect_to @question_review, notice: "Question review was successfully created." }
+        format.html { redirect_to question_path(@question_review.question_code), notice: "Question review was successfully created." }
         format.json { render :show, status: :created, location: @question_review }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @question_review.errors, status: :unprocessable_entity }
       end
     end
+
   end
 
   # PATCH/PUT /question_reviews/1 or /question_reviews/1.json
