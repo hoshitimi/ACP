@@ -12,7 +12,7 @@ class PointsController < ApplicationController
 
   # GET /points/new
   def new
-    @point = Point.new
+    @point = Point.new(user_id: params[:user_id])
   end
 
   # GET /points/1/edit
@@ -30,7 +30,7 @@ class PointsController < ApplicationController
         @user_point = @user.point + @point.fluctuation
         @user.update(point: @user_point)
         session[:login_user_point] = @user_point
-        format.html { redirect_to @point, notice: "Point was successfully created." }
+        format.html { redirect_to @point, notice: "ポイントが追加されました" }
         format.json { render :show, status: :created, location: @point }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -43,7 +43,7 @@ class PointsController < ApplicationController
   def update
     respond_to do |format|
       if @point.update(point_params)
-        format.html { redirect_to @point, notice: "Point was successfully updated." }
+        format.html { redirect_to @point, notice: "ポイントの変更を更新しました" }
         format.json { render :show, status: :ok, location: @point }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -56,7 +56,7 @@ class PointsController < ApplicationController
   def destroy
     @point.destroy
     respond_to do |format|
-      format.html { redirect_to points_url, notice: "Point was successfully destroyed." }
+      format.html { redirect_to points_url, notice: "ポイントが削除されました" }
       format.json { head :no_content }
     end
   end
