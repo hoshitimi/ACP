@@ -4,12 +4,14 @@
   <h1>しつもんひろば</h1><br>
   <%= form_tag('/questions_search') do %>
     <p>
-    カテゴリー(部分一致)
+    カテゴリー別に検索できます
     <br>
     <%= text_field_tag 'search[category]' %><%= submit_tag '検索' %>
+    <%= select_tag 'search[category]' %>
     </p>
   <% end %>
   <p><%= button_to '質問をする', {controller: 'questions', action: 'new'}, {method: :get} %><br></p>
+  
 
 <p>
   <table border="1">
