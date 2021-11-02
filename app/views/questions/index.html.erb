@@ -4,9 +4,9 @@
   <h1>しつもんひろば</h1><br>
   <%= form_tag('/questions_search') do %>
     <p>
-    タイトル(部分一致)
+    カテゴリー(部分一致)
     <br>
-    <%= text_field_tag 'search[title]' %><%= submit_tag '検索' %>
+    <%= text_field_tag 'search[category]' %><%= submit_tag '検索' %>
     </p>
   <% end %>
   <p><%= button_to '質問をする', {controller: 'questions', action: 'new'}, {method: :get} %><br></p>
@@ -26,9 +26,8 @@
       <% @questions.each do |question| %>
         <tr>
           <td><%= question.user_code %></td>
-          <td><%= question.title %></td>
+          <td><%= link_to question.title, question %></td>
           <td><%= question.category %></td>
-          <td><%= link_to '詳細', question %></td>
           <td><%= link_to '編集', edit_question_path(question) %></td>
           <td><%= link_to '削除', question, method: :delete, data: { confirm: '本当に削除しますか？' } %></td>
         </tr>

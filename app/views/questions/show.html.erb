@@ -21,16 +21,27 @@
   <%= @question.contents %>
 </p>
 
-<p><b>コメント</b></p>
-<% @question_reviews.each do |q| %>
+<p><b>コメントを追加する</b></p>
+<%= form_tag('/question_reviews') do %>
+  <%= hidden_field :contents, :question_code, :value => @question.id %>
   <p>
-  <%= q.created_at %>
-  <br>
-  <%= q.contents %>
+  <%= text_field :contents, :contents %>
+  <%= submit_tag "　追　　加　" %>
   </p>
+<% end %>
+</center>
+
+<p><b>ベストアンサー</b></p>
+
+<% @question_reviews.each do |q| %>
+    <p>
+      <%= q.created_at %>
+    <br>
+      <%= q.contents %>
+    </p>
 <% end %>
 
 <%= link_to 'しつもんひろばへ戻る', questions_path %><br>
 
 <a href = 'http://localhost:3000/question_reviews/new'>質問に回答する</a>
-</center>
+
