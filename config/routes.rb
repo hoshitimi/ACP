@@ -5,15 +5,15 @@ Rails.application.routes.draw do
   get 'home/login'
   post 'home/login_check'
   post '/books_search', to: 'books#search'
-  get 'home/kanri'
-  get 'home/login'
-  post 'home/login_check'
   post 'home/logout'
+
 
   post '/books_search', to:"books#search"
   post '/', to: 'books#search'
   post '/questions_search', to:"questions#search"
   post '/', to: 'questions#search'
+  post '/users_search', to:"users#search"
+  post '/', to: 'users#search'
   resources :books
   resources :users
   resources :book_reviews
