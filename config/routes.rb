@@ -4,7 +4,13 @@ Rails.application.routes.draw do
   get 'home/kanri'
   get 'home/login'
   post 'home/login_check'
+<<<<<<< HEAD
   post '/books_search', to: 'books#search'
+=======
+  get 'home/kanri'
+  get 'home/login'
+  post 'home/login_check'
+>>>>>>> 768de728903dac2252b566f2010d06726654c401
   post 'home/logout'
 
 
