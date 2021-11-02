@@ -3,7 +3,7 @@ class BookReviewsController < ApplicationController
 
   # GET /book_reviews or /book_reviews.json
   def index
-    @book_reviews = BookReview.all
+    @book_reviews = BookReview.where(flag:true)
   end
 
   # GET /book_reviews/1 or /book_reviews/1.json

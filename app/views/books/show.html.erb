@@ -15,6 +15,11 @@
   <%= @book.book_number %>
 </p>
 
+<p>
+  <strong>フラグ:</strong>
+  <%= @book.flag %>
+</p>
+
 <%=  form_tag('/comments') do %>
   <%= hidden_field :comment, :book_id %>
   <p>
@@ -26,6 +31,12 @@
 <% @book_reviews.each do |c| %>
   <p>
   <%= c.user_id %>
+  <br>
+  <%= c.user_acount %>
+  <br>
+  <%= c.created_at %>
+  <br>
+  <button type="button">good</button><%= c.good %>
   <br>
   <%= c.comment %>
   </p>
