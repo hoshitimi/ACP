@@ -1,16 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<h1>本の検索</h1>
-
-<%= form_tag('/books_search') do %>
-  <p>
-  書籍名 　　　　　　　　　　 著者名
-  <br>
-  <%= text_field_tag 'search[title]' %>
-
-  <%= text_field_tag 'search[author_name]' %><%= submit_tag '検索' %>
-  </p>
-  <% end %>
 <table border="1">
   <thead>
     <tr>
@@ -28,6 +17,7 @@
         <td><%= link_to '詳細', book %></td>
         <td><%= link_to '編集', edit_book_path(book) %></td>
         <td><%= link_to '削除', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= button_to '承認', {controller: 'home', action: 'approval_book'},{} %>
       </tr>
     <% end %>
   </tbody>
@@ -35,5 +25,4 @@
 
 <br>
 
-<%= link_to '本の新規登録', new_book_path %>
-<%= link_to 'ホーム画面へ', home_top_path %>
+<%= link_to '戻る', home_kanri_path %>

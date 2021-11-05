@@ -5,6 +5,24 @@ class HomeController < ApplicationController
   def kanri
   end
 
+  def approval_book_index
+    @books = Book.all
+    @books = Book.where(flag: false)
+  end
+
+  def approval_book_review_index
+    @book_reviews = BookReview.where(flag:false)
+  end
+
+  def approval_book
+  end
+
+  def approval_book_review
+  end
+
+  
+
+
   def login
   end
 
