@@ -1,5 +1,4 @@
 <p id="notice"><%= notice %></p>
-
 <p>
   <strong>書籍名:</strong>
   <%= @book.title %>
@@ -20,23 +19,22 @@
   <%= @book.flag %>
 </p>
 
-<%=  form_tag('/comments') do %>
-  <%= hidden_field :comment, :book_id %>
-  <p>
-  <%= text_field :comment, :comment %>
-  <%= submit_tag "コメント追加" %>
-  </p>
-<% end %>
-
+ form_with model: @post, url:search_path, method :get, local: true do |form|
+  form.select :keyword [['新着順', 'new'],
+                         ['good数が多い順', 'likes'],]
+  form.submit
 <% @book_reviews.each do |c| %>
   <p>
   <%= c.user_id %>
   <br>
-  <%= c.user_acount %>
-  <br>
   <%= c.created_at %>
   <br>
-  <button type="button">good</button><%= c.good %>
+  <%= form_tag('/good_add') do %>
+    <%= hidden_field :good, :book_review_code, :value => c.id %>
+    <p>
+    <%= submit_tag "　good" %><%= c.good %>
+    </p>
+  <% end %>
   <br>
   <%= c.comment %>
   </p>

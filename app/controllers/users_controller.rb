@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   # GET /users or /users.json
   def index
-    @users = User.all
+    @users = User.all.order(:user_id => "asc")
   end
 
   # GET /users/1 or /users/1.json
@@ -54,6 +54,15 @@ class UsersController < ApplicationController
       format.html { redirect_to users_url, notice: "User was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def search
+    if params[:search][:user_id].present?
+      @users = User.where("user_id like '%" + params[:search][:user_id] + "%'").order(:user_id => "asc")
+    else
+      @users = User.all.order(:user_id => "asc")
+    end
+    render :index
   end
 
   private

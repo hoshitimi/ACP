@@ -2,6 +2,14 @@
 
 <h1>ユーザー一覧</h1>
 
+<%= form_tag('/users_search') do %>
+  <p>
+  アカウント
+  <br>
+  <%= text_field_tag 'search[user_id]' %><%= submit_tag '検索' %>
+  </p>
+<% end %>
+
 <table>
   <thead>
     <tr>
@@ -34,4 +42,4 @@
 <br>
 
 <%= link_to 'ユーザーの登録', new_user_path %>
-<%= link_to '管理者画面へ', home_kanri_path %>
+<p><%= link_to '管理者画面へ', home_kanri_path %></p>
