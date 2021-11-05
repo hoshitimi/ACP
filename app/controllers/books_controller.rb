@@ -8,7 +8,16 @@ class BooksController < ApplicationController
 
   # GET /books/1 or /books/1.json
   def show
-    @book_reviews = BookReview.where(book_id: params[:id])
+    @book_reviews = BookReview.where(book_id: params[:id]) 
+
+    if params[:sort] == "created_at"
+      @book_reviews = BookReview.where(book_id: params[:id]).order(:created_at => "asc")
+    end
+
+    if params[:sort] == "good"
+      @book_reviews = BookReview.where(book_id: params[:id]).order(:good => "desc")
+    end
+
   end
 
   # GET /books/new
@@ -24,7 +33,7 @@ class BooksController < ApplicationController
   def create
     @book = Book.new(book_params)
     @book.flag = false
-
+    if @book_review >= 50
     respond_to do |format|
       if @book.save
         format.html { redirect_to @book, notice: "Book was successfully created." }

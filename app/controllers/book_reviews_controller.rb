@@ -31,8 +31,8 @@ class BookReviewsController < ApplicationController
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @book_review.errors, status: :unprocessable_entity }
       end
-    end
   end
+end
 
   # PATCH/PUT /book_reviews/1 or /book_reviews/1.json
   def update

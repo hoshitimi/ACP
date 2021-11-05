@@ -18,11 +18,17 @@
   <strong>フラグ:</strong>
   <%= @book.flag %>
 </p>
+<%=form_tag('/show') do %>
+  <%= hidden_field_tag :id, @book.id %>
+  <select name="sort">
+  <option value="created_at">新着順</option>
+  <option value="good">good数多い順</option>
+  </select>
 
- form_with model: @post, url:search_path, method :get, local: true do |form|
-  form.select :keyword [['新着順', 'new'],
-                         ['good数が多い順', 'likes'],]
-  form.submit
+  <%= submit_tag '検索' %>
+<%end%>
+
+
 <% @book_reviews.each do |c| %>
   <p>
   <%= c.user_id %>
