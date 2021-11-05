@@ -2,7 +2,10 @@ class BooksController < ApplicationController
   before_action :set_book, only: %i[ show edit update destroy ]
   # GET /books or /
   def index
+<<<<<<< HEAD
     @books = Book.all
+=======
+>>>>>>> 116bfb9b5186014418d66175c77052c8b2db7b67
     @books = Book.where(flag: true)
   end
 

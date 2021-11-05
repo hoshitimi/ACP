@@ -55,7 +55,19 @@ class BookReviewsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+   def good_add
+    @book_review = BookReview.find(params[:good][:book_review_code])
+    @book_review.good += 1
+    respond_to do |format|
+      if @book_review.save
+        format.html { redirect_to book_path(@book_review.book_id), notice: "レビューが登録されましたが、承認待ちです。しばらくお待ちください。" }
+        format.json { render :show, status: :created, location: @book_review }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @book_review.errors, status: :unprocessable_entity }
+      end
+    end
+   end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_book_review

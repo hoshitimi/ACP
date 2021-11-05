@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   post 'home/approval_book_review'
 
   post '/books_search', to:"books#search"
+  post '/good_add' , to:"book_reviews#good_add"
   post '/', to: 'books#search'
   post '/questions_search', to:"questions#search"
   post '/', to: 'questions#search'
