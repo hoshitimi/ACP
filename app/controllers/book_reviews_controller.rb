@@ -13,6 +13,8 @@ class BookReviewsController < ApplicationController
   # GET /book_reviews/new
   def new
     @book_review = BookReview.new
+    @book_review.good = 0
+
   end
 
   # GET /book_reviews/1/edit
