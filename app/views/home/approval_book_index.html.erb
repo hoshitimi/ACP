@@ -22,7 +22,7 @@
             <%= submit_tag '承認' %>
         <% end %></td>
         <td><%= link_to '拒否', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%= form_tag(book, method: :delete, data: { confirm: 'Are you sure?' })  %></td>
+        <td><%= form_tag(book, method: :delete, data: { confirm: 'Are you sure?' }) do %></td>
       </tr>
     <% end %>
   </tbody>
