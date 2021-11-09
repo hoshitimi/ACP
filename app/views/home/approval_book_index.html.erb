@@ -5,7 +5,7 @@
     <tr>
       <th>書籍名</th>
       <th>著者名</th>
-      <th colspan="5"></th>
+      <th colspan="6"></th>
     </tr>
   </thead>
 
@@ -17,7 +17,12 @@
         <td><%= link_to '詳細', book %></td>
         <td><%= link_to '編集', edit_book_path(book) %></td>
         <td><%= link_to '承認', controller: "home", action: "approval_book" %></td>
+        <td><%= form_tag({ :controller => 'home', :action => 'approval_book' },
+        { :method => :post}) do %>
+            <%= submit_tag '承認' %>
+        <% end %></td>
         <td><%= link_to '拒否', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= form_tag(book, method: :delete, data: { confirm: 'Are you sure?' })  %></td>
       </tr>
     <% end %>
   </tbody>

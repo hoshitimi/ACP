@@ -15,6 +15,7 @@ class HomeController < ApplicationController
   end
 
   def approval_book
+    logger.debug("=======ここにきたよ～========")
   end
 
   def approval_book_review
