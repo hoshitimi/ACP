@@ -21,23 +21,27 @@
   <%= @question.contents %>
 </p>
 
-<p><b>コメントを追加する</b></p>
-<%= form_tag('/question_reviews') do %>
-  <%= hidden_field :contents, :question_code, :value => @question.id %>
-  <p>
-  <%= text_field :contents, :contents %>
-  <%= submit_tag "　追　　加　" %>
-  </p>
-<% end %>
+<div  class="fixed_btn">
+  <p><b>コメントを追加する</b></p>
+  <%= form_tag('/question_reviews') do %>
+    <%= hidden_field :contents, :question_code, :value => @question.id %>
+    <p>
+    <%= text_field :contents, :contents %>
+    <%= submit_tag "　追　　加　" %>
+    </p>
+  <% end %>
+</div>
 </center>
 
 <p><b>ベストアンサー</b></p>
+
+<p><b>コメント</b></p>
 
 <% @question_reviews.each do |q| %>
     <p>
       <%= q.created_at %>
     <br>
-      <%= q.contents %>
+      <%= link_to q.contents, q %>
     </p>
 <% end %>
 
