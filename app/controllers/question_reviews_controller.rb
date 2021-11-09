@@ -19,6 +19,10 @@ class QuestionReviewsController < ApplicationController
   def edit
   end
 
+  #def best_check
+   # @best_flag = params[:best_flag]
+  #end
+
   # POST /question_reviews or /question_reviews.json
   def create
     @question_review = QuestionReview.new
