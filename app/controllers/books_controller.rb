@@ -32,6 +32,8 @@ class BooksController < ApplicationController
   # POST /books or /books.json
   def create
     @book = Book.new(book_params)
+    @book.flag = false
+    @book_review = BookReview.new(book_review_params)
     respond_to do |format|
       if @book.save
         format.html { redirect_to @book, notice: "Book was successfully created." }
@@ -91,6 +93,6 @@ class BooksController < ApplicationController
     def book_params
       params.require(:book).permit(:user_id, :isbn, :title, :author_name, :book_number, :flag)
     end
-  end
+  
     
 end
