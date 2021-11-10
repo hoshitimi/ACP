@@ -10,10 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_29_031930) do
+ActiveRecord::Schema.define(version: 2021_11_10_014709) do
 
   create_table "book_reviews", force: :cascade do |t|
-    t.integer "comment_id"
     t.integer "book_id"
     t.integer "user_id"
     t.string "comment"

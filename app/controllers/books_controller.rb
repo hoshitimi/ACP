@@ -33,9 +33,22 @@ class BooksController < ApplicationController
   def create
     @book = Book.new(book_params)
     @book.flag = false
-    @book_review = BookReview.new(book_review_params)
+
+
     respond_to do |format|
       if @book.save
+        if params[:book][:book_review_comment].present?
+          @book_review = BookReview.new
+          @book_review.book_id = @book.id
+          @book_review.user_id = @book.user_id
+          @book_review.comment = params[:book][:book_review_comment]
+          @book_review.good = 0
+          @book_review.flag = false
+          logger.debug("======2========")
+          logger.debug(@book_review.flag)
+          logger.debug("==============")
+          @book_review.save
+        end
         format.html { redirect_to @book, notice: "Book was successfully created." }
         format.json { render :show, status: :created, location: @book }
       else
