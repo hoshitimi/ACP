@@ -41,13 +41,11 @@
       <%= q.created_at %>
     <br>
       <%= link_to q.contents, q %>
-    </p>
-    <p>
-      <#%= form_tag({ :controller => 'question_reviews', :action => 'best_check' },{ :method => :post}) do %>
-      <#%= submit_tag 'ベストアンサー' %>
+      <% if session[:login_id] == @question.user_code %>
+        <%= button_to '👍',{controller: 'question_reviews', action: 'show' }, {method: :get, class: "button_white" } %>
+      <% end %>
     </p>
 <% end %>
 
-<%= link_to 'しつもんひろばへ戻る', questions_path %><br>
-<a href = 'http://localhost:3000/question_reviews/new'>質問に回答する</a>
+<p><%= button_to 'しつもんひろばへ戻る', '/questions', method: :get %></p>
 
