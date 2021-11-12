@@ -10,6 +10,7 @@
       </ul>
     </div>
   <% end %>
+  <%= hidden_field :book, :user_id, :value =>  session[:login_id] %>
 
   <div class="field">
     <%= form.label :isbn %>
@@ -33,7 +34,7 @@
 
   <div class="field">
     <%= form.label :レビュー %>
-    <%= form.text_field :books_reviews_comment %>
+    <%= form.text_field :book_review_comment %>
   </div>
   <th>レビューは50文字以上書いてください</th>
 
