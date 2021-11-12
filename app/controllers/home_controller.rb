@@ -16,6 +16,18 @@ class HomeController < ApplicationController
 
   def approval_book
     logger.debug("=======ここにきたよ～========")
+    #どの本の承認ボタンが押されたか、DBからそのIDでfindかfind_byする
+    @book = Book.find_by(isbn: @isbn)
+    #@bookの承認フラグにtrueを代入
+    logger.debug("=======ここ========")
+    @book.flag = true
+    #@book.saveして画面遷移（OKなら承認一覧でOKメッセージ、NGなら承認一覧でNGメッセージ）
+    if @book.save
+      redirect_to home_approval_book_index_path, notice: "承認"
+    else
+      format.html { render :new, status: :unprocessable_entity }
+      format.json { render json: @book.errors, status: :unprocessable_entity }
+    end
   end
 
   def approval_book_review
