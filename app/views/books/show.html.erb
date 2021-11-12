@@ -18,6 +18,7 @@
   <strong>フラグ:</strong>
   <%= @book.flag %>
 </p>
+
 <%=form_tag('/show') do %>
   <%= hidden_field_tag :id, @book.id %>
   <select name="sort">

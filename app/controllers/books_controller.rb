@@ -33,6 +33,7 @@ class BooksController < ApplicationController
   def create
     @book = Book.new(book_params)
     @book.flag = false
+    # @book_review = BookReview.new(book_review_params)
 
 
     respond_to do |format|
