@@ -78,6 +78,6 @@ end
 
     # Only allow a list of trusted parameters through.
     def book_review_params
-      params.require(:book_review).permit(:comment_id, :book_id, :user_id, :comment, :good, :flag)
+      params.require(:book_review).permit(:book_id, :user_id, :comment, :good, :flag)
     end
 end
