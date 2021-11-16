@@ -36,6 +36,8 @@
   <br>
   <%= c.created_at %>
   <br>
+  #<%= c.user_acount %>
+  #<br>
   <%= form_tag('/good_add') do %>
     <%= hidden_field :good, :book_review_code, :value => c.id %>
     <p>

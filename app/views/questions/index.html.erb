@@ -9,7 +9,11 @@
     <%= select_tag 'search[category]', options_for_select(QuestionCategory.all.map { |q| [q.category_name] }, ), include_blank: true %><%= submit_tag '検索' %>
     </p>
   <% end %>
-  <p><%= button_to '質問をする', {controller: 'questions', action: 'new'}, {method: :get} %><br></p>
+  <p>
+    <div class='fixed_btn'>
+      <%= button_to '質問をする', {controller: 'questions', action: 'new'}, {method: :get} %>
+    </div>
+  </p>
   
 
 <p>
@@ -37,6 +41,7 @@
   </table>
 </p>
 </center>
+<p><%= button_to 'ホームに戻る','/home/top', method: :get %></p>
 
 <br>
 
