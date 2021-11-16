@@ -40,7 +40,7 @@
     <p>
       <%= q.created_at %>
     <br>
-      <%= link_to q.contents, q %>
+      <%= q.contents %>
       <% if session[:login_id] == @question.user_code %>
         <%= button_to '👍',{controller: 'question_reviews', action: 'show' }, {method: :get, class: "button_white" } %>
       <% end %>
