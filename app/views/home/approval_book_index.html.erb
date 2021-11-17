@@ -16,13 +16,12 @@
         <td><%= book.title %></td>
         <td><%= book.author_name %></td>
         <td><%= book.isbn %></td>
-        <td><%= book.flag %></td>
         <td><%= link_to '詳細', book %></td>
         <td><%= link_to '編集', edit_book_path(book) %></td>
         <td><%= form_tag({ :controller => 'home', :action => 'approval_book' },
         { :method => :post}) do %>
           <%= hidden_field :book_id, :id, :value => book.id %>
-            <%= submit_tag '承認' %>
+          <%= submit_tag '承認' %>
         <% end %></td>
         <td><%= form_tag(book, method: :delete, data: { confirm: '本の追加を拒否しますか?' }) do %>
           <%= submit_tag '拒否' %>
