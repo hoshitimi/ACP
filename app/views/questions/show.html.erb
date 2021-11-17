@@ -34,6 +34,14 @@
 </center>
 
 <p><b>ベストアンサー</b></p>
+<% @question_best_review.each do |q| %>
+  <p>
+    <%= q.created_at %>
+  <br>
+    <%= q.contents %>
+    <%= link_to q.contents, q %>
+  </p>
+<% end %>
 
 <p><b>コメント</b></p>
 <% @question_reviews.each do |q| %>

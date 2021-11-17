@@ -8,7 +8,8 @@ class QuestionsController < ApplicationController
 
   # GET /questions/1 or /questions/1.json
   def show
-    @question_reviews = QuestionReview.where(question_code: params[:id])
+    @question_reviews = QuestionReview.where(question_code: params[:id], best_flag: 0)
+    @question_best_review = QuestionReview.where(question_code: params[:id], best_flag: 1)
   end
 
   # GET /questions/new
@@ -67,13 +68,14 @@ class QuestionsController < ApplicationController
   end
 
   def best_answer
-    #@question_review = QuestionReview.all
-    #@question_review.content = params[:content][:id]
-    #@question_review
+    @question_reviews = QuestionReview.find(params[:question_reviews][:id])
+    @question_reviews.best_flag = 1
+    @question_reviews.save
 
     logger.debug("=================")
     logger.debug("ここまで来たよ～")
     logger.debug("=================")
+
   end
 
   private
