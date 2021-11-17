@@ -45,9 +45,6 @@ class BooksController < ApplicationController
           @book_review.comment = params[:book][:book_review_comment]
           @book_review.good = 0
           @book_review.flag = false
-          logger.debug("======2========")
-          logger.debug(@book_review.flag)
-          logger.debug("==============")
           @book_review.save
         end
         format.html { redirect_to "/books", notice: "Book was successfully created." }
