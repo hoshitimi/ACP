@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   post '/', to: 'books#search'
   post '/questions_search', to:"questions#search"
   post '/', to: 'questions#search'
+  post '/questions_best_answer', to:"questions#best_answer"
   post '/users_search', to:"users#search"
   post '/', to: 'users#search'
   post 'question_reviews/best_check', to:"question_reviews#bestcheck"

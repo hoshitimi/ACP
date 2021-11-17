@@ -41,8 +41,12 @@
       <%= q.created_at %>
     <br>
       <%= q.contents %>
+    <br>
       <% if session[:login_id] == @question.user_code %>
-        <%= button_to '👍',{controller: 'question_reviews', action: 'show' }, {method: :get, class: "button_white" } %>
+        <%= form_tag('/questions_best_answer') do %>
+        　<%= hidden_field :question_reviews, :id, :value => q.id %>
+          <%= submit_tag "👍", class: "button_white" %>
+        <% end %>
       <% end %>
     </p>
 <% end %>
