@@ -50,7 +50,7 @@ class BooksController < ApplicationController
           logger.debug("==============")
           @book_review.save
         end
-        format.html { redirect_to @book, notice: "Book was successfully created." }
+        format.html { redirect_to "/books", notice: "Book was successfully created." }
         format.json { render :show, status: :created, location: @book }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -76,7 +76,7 @@ class BooksController < ApplicationController
   def destroy
     @book.destroy
     respond_to do |format|
-      format.html { redirect_to books_url, notice: "Book was successfully destroyed." }
+      format.html { redirect_to home_approval_book_index_path, notice: "Book was successfully destroyed." }
       format.json { head :no_content }
     end
   end
