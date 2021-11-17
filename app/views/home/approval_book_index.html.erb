@@ -1,4 +1,5 @@
 <p id="notice"><%= notice %></p>
+<h1>本の新規追加の承認・拒否</h1>
 
 <table border="1">
   <thead>
@@ -14,15 +15,16 @@
       <tr>
         <td><%= book.title %></td>
         <td><%= book.author_name %></td>
+        <td><%= book.isbn %></td>
+        <td><%= book.flag %></td>
         <td><%= link_to '詳細', book %></td>
         <td><%= link_to '編集', edit_book_path(book) %></td>
-        <td><%= link_to '承認', controller: "home", action: "approval_book" %></td>
         <td><%= form_tag({ :controller => 'home', :action => 'approval_book' },
         { :method => :post}) do %>
+          <%= hidden_field :book_id, :id, :value => book.id %>
             <%= submit_tag '承認' %>
         <% end %></td>
-        <td><%= link_to '拒否', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%= form_tag(book, method: :delete, data: { confirm: 'Are you sure?' }) do %>
+        <td><%= form_tag(book, method: :delete, data: { confirm: '本の追加を拒否しますか?' }) do %>
           <%= submit_tag '拒否' %>
         <% end %></td>
       </tr>
