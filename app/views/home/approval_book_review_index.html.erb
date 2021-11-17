@@ -6,11 +6,10 @@
   <thead>
     <tr>
       <th>id</th>
-      <th>book</th>
       <th>User</th>
-      <th>レビュー</th>
+      <th>comment</th>
       <th>good数</th>
-      <th>承認</th>
+      <th>flag</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,15 +17,20 @@
   <tbody>
     <% @book_reviews.each do |book_review| %>
       <tr>
-        <td><%= book_review.comment_id %></td>
         <td><%= book_review.book_id %></td>
         <td><%= book_review.user_id %></td>
         <td><%= book_review.comment %></td>
         <td><%= book_review.good %></td>
-        <td><%= book_review.flag %></td>
         <td><%= link_to '詳細', book_review %></td>
         <td><%= link_to '編集', edit_book_review_path(book_review) %></td>
-        <td><%= link_to '削除', book_review, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= form_tag({ :controller => 'home', :action => 'approval_book_review' },
+        { :method => :post}) do %>
+          <%= hidden_field :book_id, :id, :value => book.id %>
+          <%= submit_tag '承認' %>
+        <% end %></td>
+        <td><%= form_tag(book_review, method: :delete, data: { confirm: 'レビューを拒否しますか？' }) do %>
+          <%= submit_tag '拒否' %>
+        <% end %></td>
       </tr>
     <% end %>
   </tbody>
