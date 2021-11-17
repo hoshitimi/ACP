@@ -12,7 +12,7 @@ class BookReviewsController < ApplicationController
 
   # GET /book_reviews/new
   def new
-    @book_review = BookReview.new
+    @book_review = BookReview.new(user_id: params[:user_id])
     @book_review.good = 0
 
   end
@@ -24,6 +24,8 @@ class BookReviewsController < ApplicationController
   # POST /book_reviews or /book_reviews.json
   def create
     @book_review = BookReview.new(book_review_params)
+    @user = User.find_by(user_id: @book_review.user_id)
+    @book_review.good = 0
 
     respond_to do |format|
       if @book_review.save

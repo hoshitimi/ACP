@@ -13,12 +13,22 @@
 
   <div class="field">
     <%= form.label "本のid" %>
-    <%= form.number_field :book_id %>
+    <%= form.number_field :book_id,readonly: true, style: "background-color: silver" %>
+  </div>
+  
+  <div class="field">
+    <%= form.label "書籍名" %>
+    <%= form.text_field :title, readonly: true, style: "background-color: silver" %>
+  </div>
+
+   <div class="field">
+    <%= form.label "著者名" %>
+    <%= form.text_field :author_name,readonly: true, style: "background-color: silver" %>
   </div>
 
   <div class="field">
-    <%= form.label "ユーザーのid" %>
-    <%= form.number_field :user_id %>
+    <%= form.label "ユーザーID" %>
+    <%= form.number_field :user_id, readonly: true, style: "background-color: silver" %>   
   </div>
 
   <div class="field">
