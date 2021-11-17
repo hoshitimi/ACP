@@ -66,6 +66,16 @@ class QuestionsController < ApplicationController
     render :index
   end
 
+  def best_answer
+    #@question_review = QuestionReview.all
+    #@question_review.content = params[:content][:id]
+    #@question_review
+
+    logger.debug("=================")
+    logger.debug("ここまで来たよ～")
+    logger.debug("=================")
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_question
