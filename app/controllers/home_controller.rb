@@ -10,7 +10,7 @@ class HomeController < ApplicationController
   end
 
   def approval_book_review_index
-    @book_reviews = BookReview.where(flag:false)
+    @book_reviews = BookReview.where(flag: false)
   end
 
   def approval_book
@@ -29,6 +29,17 @@ class HomeController < ApplicationController
   end
 
   def approval_book_review
+    logger.debug "------------"
+    @book_reviews_id = params[:book_reviews_id][:id]
+    @book_review = BookReview.find_by(id: @book_reviews_id)
+    logger.debug "------ここ------"
+    @book_review.flag = true
+    if @book_review.save
+      redirect_to home_approval_book_review_index_path, notice: "承認"
+    else
+      format.html { render :home_approval_book_review_index, status: :unprocessable_entity }
+      format.json { render json: @book_review.errors, status: :unprocessable_entity }
+    end
   end
 
   

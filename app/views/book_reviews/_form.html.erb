@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= form.label "ユーザーのid" %>
-    <%= form.text_field :user_id, readonly: true %>
+    <%= form.text_field :user_id %>
   </div>
 
   <div class="field">
@@ -26,10 +26,6 @@
     <%= form.text_field :comment %>
   </div>
 
-  <div class="field">
-    <%= form.label "承認" %>
-    <%= form.check_box :flag %>
-  </div>
 
 
   <div class="actions">
