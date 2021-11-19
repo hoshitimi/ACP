@@ -1,10 +1,9 @@
 <p id="notice"><%= notice %></p>
-
+<center>
 <h1>本の検索</h1>
-
 <%= form_tag('/books_search') do %>
   <p>
-  書籍名 　　　　　　　　　　 著者名
+書籍名 　　　　　　　　　　 著者名
   <br>
   <%= text_field_tag 'search[title]' %>
 
@@ -37,3 +36,4 @@
 
 <%= link_to '本の新規登録', new_book_path %>
 <%= link_to 'ホーム画面へ', home_top_path %>
+</center>
