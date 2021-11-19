@@ -18,8 +18,6 @@
         <td><%= book_review.book_id %></td>
         <td><%= book_review.user_id %></td>
         <td><%= book_review.comment %></td>
-        <td><%= link_to '詳細', book_review %></td>
-        <td><%= link_to '編集', edit_book_review_path(book_review) %></td>
         <td><%= form_tag({ :controller => 'home', :action => 'approval_book_review' },
         { :method => :post}) do %>
           <%= hidden_field :book_reviews_id, :id, :value => book_review.id %>
@@ -35,5 +33,4 @@
 
 <br>
 
-<%= link_to '新しいレビュー', new_book_review_path %>
 <%= link_to '戻る', home_kanri_path %>

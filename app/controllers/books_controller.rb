@@ -8,7 +8,7 @@ class BooksController < ApplicationController
 
   # GET /books/1 or /books/1.json
   def show
-    @book_reviews = BookReview.where(book_id: params[:id]) 
+    @book_reviews = BookReview.where(book_id: params[:id], flag: true) 
 
     if params[:sort] == "created_at"
       @book_reviews = BookReview.where(book_id: params[:id]).order(:created_at => "asc")

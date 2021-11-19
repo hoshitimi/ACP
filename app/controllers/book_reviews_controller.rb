@@ -23,13 +23,10 @@ class BookReviewsController < ApplicationController
   # POST /book_reviews or /book_reviews.json
   def create
     @book_review = BookReview.new(book_review_params)
-<<<<<<< HEAD
     @book_review.flag = false
 
-=======
     @user = User.find_by(user_id: @book_review.user_id)
     @book_review.good = 0
->>>>>>> 6d36084c0206f069df201f17d59913ad0347157c
     respond_to do |format|
       if @book_review.save
         format.html { redirect_to @book_review, notice: "Book review was successfully created." }
