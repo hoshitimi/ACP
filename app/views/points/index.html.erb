@@ -3,9 +3,9 @@
 <h1>ポイント状況一覧</h1>
 <h2><%=session[:login_user_acount] %>の現在のポイント数：<%= session[:login_user_point] %></h2>
 
-<table>
+<table border = "1">
   <thead>
-    <table border = "1"
+    
     <tr>
       <th>日付</th>
       <th>User</th>
@@ -23,8 +23,6 @@
         <td><%= point.summary %></td>
         <td><%= point.fluctuation %></td>
         <td><%= link_to '詳細', point %></td>
-        <td><%= link_to '編集', edit_point_path(point) %></td>
-        <td><%= link_to '削除', point, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

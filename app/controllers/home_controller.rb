@@ -10,7 +10,7 @@ class HomeController < ApplicationController
   end
 
   def approval_book_review_index
-    @book_reviews = BookReview.where(flag:false)
+    @book_reviews = BookReview.where(flag: false).order(:created_at => "desc")
   end
 
   def approval_book
@@ -21,7 +21,7 @@ class HomeController < ApplicationController
     @book.flag = true
     #@book.saveして画面遷移（OKなら承認一覧でOKメッセージ、NGなら承認一覧でNGメッセージ）
     if @book.save
-      redirect_to home_approval_book_index_path, notice: "承認"
+      redirect_to home_approval_book_index_path, notice: "承認しました"
     else
       format.html { render :home_approval_book_index, status: :unprocessable_entity }
       format.json { render json: @book.errors, status: :unprocessable_entity }
@@ -29,6 +29,15 @@ class HomeController < ApplicationController
   end
 
   def approval_book_review
+    @book_reviews_id = params[:book_reviews_id][:id]
+    @book_review = BookReview.find_by(id: @book_reviews_id)
+    @book_review.flag = true
+    if @book_review.save
+      redirect_to home_approval_book_review_index_path, notice: "承認しました"
+    else
+      format.html { render :home_approval_book_review_index, status: :unprocessable_entity }
+      format.json { render json: @book_review.errors, status: :unprocessable_entity }
+    end
   end
 
   
@@ -53,6 +62,7 @@ class HomeController < ApplicationController
       end
   end
 
+  
   def logout
     reset_session      
     flash.now[:error] = "ログアウトしました。"

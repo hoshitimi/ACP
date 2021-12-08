@@ -12,24 +12,35 @@
   <% end %>
 
   <div class="field">
-    <%= form.label "本のid" %>
-    <%= form.number_field :book_id %>
+    <%= form.hidden_field :book_id, :value => @book_review.book_id %>
+
+  </div>
+  <div class="field">
+    <%= form.label "書籍名" %>
+    <%= @book_title %>
+  </div>
+
+   <div class="field">
+    <%= form.label "著者名" %>
+    <%= @book_author_name %>
   </div>
 
   <div class="field">
-    <%= form.label "ユーザーのid" %>
-    <%= form.number_field :user_id %>
+<<<<<<< HEAD
+    <%= form.label "ユーザーID" %>
+    <%= form.number_field :user_id, readonly: true, style: "background-color: silver" %>   
   </div>
+=======
+    <%= form.hidden_field :user_id, :value => @book_review.user_id %>  
+  </div> 
+>>>>>>> bf86931019edfc2d624227cb26de2ab05cfda946
 
   <div class="field">
     <%= form.label "レビュー" %>
-    <%= form.text_field :comment %>
-  </div>
+    <%= form.text_area :comment, size: "18x10" %>
+  </div> 
+  <th>レビューは50文字以上書いてください</th>
 
-  <div class="field">
-    <%= form.label "承認" %>
-    <%= form.check_box :flag %>
-  </div>
 
 
   <div class="actions">

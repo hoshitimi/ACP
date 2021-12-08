@@ -36,8 +36,6 @@
   <br>
   <%= c.created_at %>
   <br>
-  #<%= c.user_acount %>
-  #<br>
   <%= form_tag('/good_add') do %>
     <%= hidden_field :good, :book_review_code, :value => c.id %>
     <p>
@@ -49,6 +47,6 @@
   </p>
 <% end %>
 
-<%= link_to '新規レビュー', new_book_review_path %>
-<%= link_to '削除', edit_book_path(@book) %> |
+<%= link_to '新規レビュー', new_book_review_path(book_id: @book.id, book_title: @book.title, book_author_name: @book.author_name, user_id: session[:login_id] ) %>
+<%= link_to '削除', edit_book_path(@book) %> | 
 <%= link_to '戻る', books_path %>

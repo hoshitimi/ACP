@@ -12,9 +12,10 @@ class BookReviewsController < ApplicationController
 
   # GET /book_reviews/new
   def new
-    @book_review = BookReview.new
+    @book_review = BookReview.new(user_id: session[:login_id],book_id: params[:book_id])
     @book_review.good = 0
-
+    @book_title = params[:book_title]
+    @book_author_name = params[:book_author_name]
   end
 
   # GET /book_reviews/1/edit
@@ -24,7 +25,10 @@ class BookReviewsController < ApplicationController
   # POST /book_reviews or /book_reviews.json
   def create
     @book_review = BookReview.new(book_review_params)
+    @book_review.flag = false
 
+    @user = User.find_by(user_id: @book_review.user_id)
+    @book_review.good = 0
     respond_to do |format|
       if @book_review.save
         format.html { redirect_to @book_review, notice: "Book review was successfully created." }
