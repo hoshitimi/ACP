@@ -50,7 +50,7 @@
     <br>
       <%= q.contents %>
     <br>
-      <% if session[:login_id] == @question.user_code %>
+      <% if session[:login_id] == @question.user_code && %>
         <%= form_tag('/questions_best_answer') do %>
         　<%= hidden_field :question_reviews, :id, :value => q.id %>
           <%= submit_tag "👍", class: "button_white" %>
