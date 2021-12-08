@@ -13,8 +13,13 @@
 
   <div class="field">
     <%= form.hidden_field :book_id, :value => @book_review.book_id %>
-
   </div>
+
+  <div class="field">
+  <%= form.label "アカウント名" %>
+  <%= session[:login_user_acount]%>
+  </div>
+
   <div class="field">
     <%= form.label "書籍名" %>
     <%= @book_title %>
@@ -26,14 +31,11 @@
   </div>
 
   <div class="field">
-<<<<<<< HEAD
     <%= form.label "ユーザーID" %>
     <%= form.number_field :user_id, readonly: true, style: "background-color: silver" %>   
   </div>
-=======
     <%= form.hidden_field :user_id, :value => @book_review.user_id %>  
   </div> 
->>>>>>> bf86931019edfc2d624227cb26de2ab05cfda946
 
   <div class="field">
     <%= form.label "レビュー" %>
