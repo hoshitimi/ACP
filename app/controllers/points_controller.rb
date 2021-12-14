@@ -13,6 +13,8 @@ class PointsController < ApplicationController
   # GET /points/new
   def new
     @point = Point.new(user_id: params[:user_id])
+    @user_point2 = params[:user_point]
+    @user_acount = params[:user_acount]
   end
 
   # GET /points/1/edit
