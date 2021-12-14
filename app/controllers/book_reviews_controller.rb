@@ -16,6 +16,7 @@ class BookReviewsController < ApplicationController
     @book_review.good = 0
     @book_title = params[:book_title]
     @book_author_name = params[:book_author_name]
+    @book_review.user_acount = session[:login_user_acount]
   end
 
   # GET /book_reviews/1/edit
