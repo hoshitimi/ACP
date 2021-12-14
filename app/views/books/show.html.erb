@@ -29,7 +29,7 @@
 
 <% @book_reviews.each do |c| %>
   <p>
-  <%= c.user_id %><%=c.user_acount %> <%= c.created_at %>
+  <%= c.user_id %> <%=c.user_acount %> <%= c.created_at %>
   <br>
   <%= c.comment %>
   <br>
@@ -42,6 +42,6 @@
   </p>
 <% end %>
 
-<%= link_to '新規レビュー', new_book_review_path(book_id: @book.id, book_title: @book.title, book_author_name: @book.author_name, user_id: session[:login_id] ) %>
+<%= link_to '新規レビュー', new_book_review_path(book_id: @book.id, book_title: @book.title, book_author_name: @book.author_name, user_id: session[:login_id], user_acount: session[:login_user_acount] ) %>
 <%= link_to '削除', edit_book_path(@book) %> | 
 <%= link_to '戻る', books_path %>

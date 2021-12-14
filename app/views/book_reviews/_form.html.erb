@@ -14,7 +14,8 @@
   <div class="field">
     <%= form.hidden_field :book_id, :value => @book_review.book_id %>
   </div>
-
+  <%= form.hidden_field :user_acount, :value => session[:login_user_acount] %>
+  
   <div class="field">
   <%= form.label "アカウント名" %>
   <%= session[:login_user_acount]%>
@@ -46,6 +47,6 @@
 
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit > %>
   </div>
 <% end %>
