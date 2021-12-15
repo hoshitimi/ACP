@@ -1,6 +1,7 @@
 <center>
   <h1>新規質問</h1>
+</center>
+  <p><%= button_to 'しつもんひろばへ戻る', '/questions', method: :get %></p>
+<center>
   <%= render 'form', question: @question %>
 </center>
-
-<%= link_to 'しつもんひろばに戻る', questions_path %>

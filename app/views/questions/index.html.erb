@@ -11,7 +11,7 @@
   <% end %>
   <p>
     <div class='fixed_btn'>
-      <%= button_to '質問をする', {controller: 'questions', action: 'new'}, {method: :get} %>
+      <%= button_to '質問をする', {controller: 'questions', action: 'new'}, {method: :get } %>
     </div>
   </p>
   
@@ -31,10 +31,8 @@
       <% @questions.each do |question| %>
         <tr>
           <td><%= question.user_code %></td>
-          <td><%= link_to question.title, question %></td>
+          <td class="titel_font" ><%= link_to question.title, question %></td>
           <td><%= question.category %></td>
-          <td><%= link_to '編集', edit_question_path(question) %></td>
-          <td><%= link_to '削除', question, method: :delete, data: { confirm: '本当に削除しますか？' } %></td>
         </tr>
       <% end %>
     </tbody>

@@ -1,3 +1,4 @@
+<p><%= button_to 'しつもんひろばへ戻る', '/questions', method: :get %></p>
 <center>
   <p id="notice"><%= notice %></p>
 
@@ -18,10 +19,12 @@
 
   <p>
     <strong>内容:</strong>
-    <%= @question.contents %>
+    <div class = "sikaku_waku">
+      <%= @question.contents %>
+    </div>
   </p>
 
-  <div  class="fixed_btn">
+  <div  class="fixed_btn_r">
     <p><b>コメントを追加する</b></p>
     <%= form_tag('/question_reviews') do %>
       <%= hidden_field :contents, :question_code, :value => @question.id %>
@@ -34,22 +37,31 @@
 </center>
 
 <p><b>ベストアンサー</b></p>
+  <% if @question_best_review.present? %>
+    <p>
+      <%= @question_best_review.created_at %>
+    <br>
+      <%= @question_best_review.contents %>
+    </p>
+  <% end %>
 
 <p><b>コメント</b></p>
-<% @question_reviews.each do |q| %>
-    <p>
-      <%= q.created_at %>
-    <br>
-      <%= q.contents %>
-    <br>
-      <% if session[:login_id] == @question.user_code %>
-        <%= form_tag('/questions_best_answer') do %>
-        　<%= hidden_field :question_reviews, :id, :value => q.id %>
-          <%= submit_tag "👍", class: "button_white" %>
-        <% end %>
-      <% end %>
-    </p>
-<% end %>
 
-<p><%= button_to 'しつもんひろばへ戻る', '/questions', method: :get %></p>
+<% @question_reviews.each do |q| %>
+  <p>
+    <%= q.created_at %>
+  <br>
+    <%= q.contents %>
+  <br>
+    <% if session[:login_id] == @question.user_code && @question_best_review.present? %>
+
+    <% elsif session[:login_id] == @question.user_code %>
+      <%= form_tag('/questions_best_answer') do %>
+        <%= hidden_field :question_reviews, :id, :value => q.id %>
+      　<%= hidden_field_tag :id, @question.id %>
+        <%= submit_tag "👍", class: "button_white" %>
+      <% end %>
+    <% end %>
+  </p>
+<% end %>
 
