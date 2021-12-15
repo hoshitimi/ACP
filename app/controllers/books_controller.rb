@@ -13,7 +13,6 @@ class BooksController < ApplicationController
     if params[:sort] == "created_at"
       @book_reviews = BookReview.where(book_id: params[:id]).order(:created_at => "asc")
     end
-
     if params[:sort] == "good"
       @book_reviews = BookReview.where(book_id: params[:id]).order(:good => "desc")
     end
@@ -80,17 +79,17 @@ class BooksController < ApplicationController
 
   def search
     if params[:search][:title].present? 
-      @books = Book.where("title like '%" + params[:search][:title] + "%'").order(:created_at => "desc")
+      @books = Book.where("title like '%" + params[:search][:title] + "%'").order(:created_at => "desc").where(flag: true)
     else
        @books = Book.all.order(:created_at => "desc")
     end
 
     if params[:search][:author_name].present?
-      @books = @books.where("author_name like '%" + params[:search][:author_name] + "%'").order(:created_at => "desc")
+      @books = @books.where("author_name like '%" + params[:search][:author_name] + "%'").order(:created_at => "desc").where(flag: true)
     else
       @books = @books.all.order(:created_at => "desc")
     end
-
+    
     render :index
   end
   

@@ -11,7 +11,6 @@
     </div>
   <% end %>
   <%= hidden_field :book, :user_id, :value =>  session[:login_id] %>
-  <%= form.hidden_field :user_acount, :value => session[:login_user_acount] %>
 
   <div class="field">
   <%= form.label "アカウント名" %>
@@ -41,7 +40,6 @@
   <div class="field">
     <%= form.label :レビュー %>
     <%= form.text_area :comment, size: "18x10" %>
-  </div>
   <th>レビューは50文字以上書いてください</th>
 
   <div class="actions">
