@@ -18,7 +18,9 @@
 
   <p>
     <strong>内容:</strong>
-    <%= @question.contents %>
+    <div class = "sikaku_waku">
+      <%= @question.contents %>
+    </div>
   </p>
 
   <div  class="fixed_btn">
@@ -39,7 +41,6 @@
       <%= @question_best_review.created_at %>
     <br>
       <%= @question_best_review.contents %>
-      <%= link_to @question_best_review.contents, @question_best_review %>
     </p>
   <% end %>
 
