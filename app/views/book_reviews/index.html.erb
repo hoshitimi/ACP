@@ -8,6 +8,7 @@
       <th>id</th>
       <th>book</th>
       <th>User</th>
+      <th>ユーザーアカウント</th>
       <th>レビュー</th>
       <th>good数</th>
       <th>承認</th>
@@ -18,9 +19,9 @@
   <tbody>
     <% @book_reviews.each do |book_review| %>
       <tr>
-        <td><%= book_review.comment_id %></td>
         <td><%= book_review.book_id %></td>
         <td><%= book_review.user_id %></td>
+        <td><%= book_review.user_acount %></td>
         <td><%= book_review.comment %></td>
         <td><%= book_review.good %></td>
         <td><%= book_review.flag %></td>

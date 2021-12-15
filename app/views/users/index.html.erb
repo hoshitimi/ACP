@@ -32,7 +32,7 @@
         <td><%= link_to '詳細', user %></td>
         <td><%= link_to '編集', edit_user_path(user) %></td>
         <td><%= link_to '削除', user, method: :delete, data: { confirm: 'ユーザーを削除しますか?' } %></td>
-        <td><%= link_to 'ポイント増減', new_point_path(user_id: user.user_id,user_point: user.point) %></td>
+        <td><%= link_to 'ポイント増減', new_point_path(user_id: user.user_id,user_point: user.point,user_acount: user.user_acount) %></td>
       </tr>
     <% end %>
   </tbody>

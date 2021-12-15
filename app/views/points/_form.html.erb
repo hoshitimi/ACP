@@ -10,6 +10,10 @@
       </ul>
     </div>
   <% end %>
+  <div class = "field">
+    <%= form.label :アカウント名 %>
+    <%= @user_acount %>
+  </div>
 
   <div class="field">
     <%= form.label :user_id %>
@@ -29,4 +33,5 @@
   <div class="actions">
     <%= form.submit %>
   </div>
+  
 <% end %>

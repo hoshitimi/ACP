@@ -12,10 +12,11 @@ class BookReviewsController < ApplicationController
 
   # GET /book_reviews/new
   def new
-    @book_review = BookReview.new(user_id: session[:login_id],book_id: params[:book_id])
+    @book_review = BookReview.new(user_id: session[:login_id],book_id: params[:book_id],user_acount: session[:login_user_acount])
     @book_review.good = 0
     @book_title = params[:book_title]
     @book_author_name = params[:book_author_name]
+    @book_review.user_acount = session[:login_user_acount]
   end
 
   # GET /book_reviews/1/edit
@@ -82,6 +83,6 @@ end
 
     # Only allow a list of trusted parameters through.
     def book_review_params
-      params.require(:book_review).permit(:book_id, :user_id, :comment, :good, :flag)
+      params.require(:book_review).permit(:book_id, :user_id, :user_acount, :comment, :good, :flag)
     end
 end
