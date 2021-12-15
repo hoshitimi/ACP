@@ -1,3 +1,4 @@
+<p><%= button_to 'しつもんひろばへ戻る', '/questions', method: :get %></p>
 <center>
   <p id="notice"><%= notice %></p>
 
@@ -23,7 +24,7 @@
     </div>
   </p>
 
-  <div  class="fixed_btn">
+  <div  class="fixed_btn_r">
     <p><b>コメントを追加する</b></p>
     <%= form_tag('/question_reviews') do %>
       <%= hidden_field :contents, :question_code, :value => @question.id %>
@@ -45,6 +46,7 @@
   <% end %>
 
 <p><b>コメント</b></p>
+
 <% @question_reviews.each do |q| %>
   <p>
     <%= q.created_at %>
@@ -62,6 +64,4 @@
     <% end %>
   </p>
 <% end %>
-
-<p><%= button_to 'しつもんひろばへ戻る', '/questions', method: :get %></p>
 
