@@ -29,7 +29,11 @@
 
 <% @book_reviews.each do |c| %>
   <p>
+<<<<<<< HEAD
    <%=c.user_acount %> <%= c.created_at.strftime('%Y/%m/%d') %>
+=======
+  <%= c.user_id %> <%=c.user_acount %> <%= c.created_at %>
+>>>>>>> e15b109cf8a92ffb4ebb61505c7a44b572e72f8b
   <br>
   <%= c.comment %>
   <br>
@@ -42,6 +46,6 @@
   </p>
 <% end %>
 
-<%= link_to '新規レビュー', new_book_review_path(book_id: @book.id, book_title: @book.title, book_author_name: @book.author_name, user_id: session[:login_id] ) %>
+<%= link_to '新規レビュー', new_book_review_path(book_id: @book.id, book_title: @book.title, book_author_name: @book.author_name, user_id: session[:login_id], user_acount: session[:login_user_acount] ) %>
 <%= link_to '削除', edit_book_path(@book) %> | 
 <%= link_to '戻る', books_path %>

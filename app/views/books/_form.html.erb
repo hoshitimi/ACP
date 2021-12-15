@@ -11,6 +11,7 @@
     </div>
   <% end %>
   <%= hidden_field :book, :user_id, :value =>  session[:login_id] %>
+  <%= form.hidden_field :user_acount, :value => session[:login_user_acount] %>
 
   <div class="field">
   <%= form.label "アカウント名" %>
