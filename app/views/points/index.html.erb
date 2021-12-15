@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>ポイント状況一覧</h1>
+<h2>ポイント状況一覧</h2>
 <h2><%=session[:login_user_acount] %>の現在のポイント数：<%= session[:login_user_point] %></h2>
 
 <table border = "1">
@@ -8,7 +8,6 @@
     
     <tr>
       <th>日付</th>
-      <th>User</th>
       <th>概要</th>
       <th>増減ポイント数</th>
       <th colspan="4"></th>
@@ -19,7 +18,6 @@
     <% @points.each do |point| %>
       <tr>
         <td><%= point.created_at.strftime('%Y/%m/%d') %></td>
-        <td><%= point.user_id %></td>
         <td><%= point.summary %></td>
         <td><%= point.fluctuation %></td>
         <td><%= link_to '詳細', point %></td>
