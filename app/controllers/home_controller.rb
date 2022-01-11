@@ -5,6 +5,7 @@ class HomeController < ApplicationController
   def kanri
   end
 
+
   def approval_book_index
     @books = Book.where(flag: false)
   end

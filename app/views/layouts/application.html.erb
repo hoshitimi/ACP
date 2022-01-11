@@ -17,10 +17,10 @@
       <%= message %>
     <% end %>
     <%= yield %>
-    <center>
-    <% if session[:login_id].present? && session[:login_user_acount].present? %>
-      <%= button_to 'ログアウト', {controller: 'home', action: 'logout'} ,{} %>
-    <% end %>
-    </center>   
+    <div class="fixed_bt">
+      <% if session[:login_id].present? && session[:login_user_acount].present? %>
+        <%= button_to 'ログアウト', {controller: 'home', action: 'logout'} ,{} %>
+      <% end %>
+    </div>   
   </body>
 </html>

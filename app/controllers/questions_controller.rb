@@ -75,7 +75,10 @@ class QuestionsController < ApplicationController
     @question_reviews = QuestionReview.find(params[:question_reviews][:id])
     @question_reviews.best_flag = 1
     @question_reviews.save
-
+    @best_user_code = @question_reviews.user_code
+    @user = User.find_by(user_id: @best_user_code)
+    @best_user_point = @user.point + 10
+    @user.update(point: @best_user_point)
     redirect_to action: :show, id: @question
 
   end
