@@ -1,6 +1,6 @@
 class BookReview < ApplicationRecord
     belongs_to :user, primary_key: :user_id, foreign_key: :user_id
-    has_many :books
+    belongs_to :book
 validate :error_check
  def error_check
     if comment.length < 50
