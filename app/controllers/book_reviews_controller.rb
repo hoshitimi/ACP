@@ -64,6 +64,13 @@ end
    def good_add
     @book_review = BookReview.find(params[:good][:book_review_code])
     @book_review.good += 1
+   if  @book_review.good == 15
+      @book_user_code = @book_review.user_id
+      @user = User.find_by(user_id: @book_user_code)
+      @book_point =@user.point + 5
+      @user.update(point: @book_point)
+   end
+
     respond_to do |format|
       if @book_review.save
         format.html { redirect_to book_path(@book_review.book_id), notice: "レビューが登録されましたが、承認待ちです。しばらくお待ちください。" }
