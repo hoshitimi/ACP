@@ -29,8 +29,8 @@
 
 <% @book_reviews.each do |c| %>
   <p>
-  <%= c.user_id %><%=c.user.user_acount %>
-  <%= c.created_at.strftime('%Y/%m/%d') %>
+  <strong><%=c.user.user_acount %></strong>
+  <strong><%= c.created_at.strftime('%Y/%m/%d') %></strong>
   <br>
   <%= c.comment %>
   <br>
