@@ -63,7 +63,12 @@ end
   end
    def good_add
     @book_review = BookReview.find(params[:good][:book_review_code])
-    @book_review.good += 1
+    #一人一回だけしか押せないようにする
+    @user_good = session[:login_id]
+    if @user_good = 
+
+       @book_review.good += 1
+
    if  @book_review.good == 15
       @book_user_code = @book_review.user_id
       @user = User.find_by(user_id: @book_user_code)
