@@ -1,7 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <center>
-  <h1>しつもんひろば</h1><br>
+<div style="font-size:50px;"><span class="maru_waku">しつもんひろば</span></div>
+
   <%= form_tag('/questions_search') do %>
     <p>
     カテゴリー別に検索できます
@@ -12,34 +13,25 @@
   <p>
     <div class='fixed_btn'>
       <%= button_to '質問をする', {controller: 'questions', action: 'new'}, {method: :get } %>
-    </div>
+    </div><br>
   </p>
   
 
 <p>
-  <table border="1">
-    <thead>
-      <tr>
-        <th>ユーザー</th>
-        <th>タイトル</th>
-        <th>カテゴリ</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-
-    <tbody>
       <% @questions.each do |question| %>
-        <tr>
-          <td><%= question.user_code %></td>
-          <td class="titel_font" ><%= link_to question.title, question %></td>
-          <td><%= question.category %></td>
-        </tr>
+        <div class="titel_font">
+          <%= question.user_code %>
+          <%= link_to question.title, question %>
+          <%= question.category %><br>
+        </div>
       <% end %>
-    </tbody>
-  </table>
 </p>
+  
 </center>
+
 <p><%= button_to 'ホームに戻る','/home/top', method: :get %></p>
+
+<center><%= paginate @questions %></center>
 
 <br>
 

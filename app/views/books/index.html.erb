@@ -3,7 +3,7 @@
 <h1>本の検索</h1>
 <%= form_tag('/books_search') do %>
   <p>
-書籍名 　　　　　　　　　　 著者名
+書籍名 　　　　　　　　　 著者名
   <br>
   <%= text_field_tag 'search[title]' %>
 
@@ -34,6 +34,6 @@
 
 <br>
 
-<%= link_to '本の新規登録', new_book_path %>
-<%= link_to 'ホーム画面へ', home_top_path %>
+<p><%= button_to '本の新規登録', '/books/new',method: :get %></p>
+<p><%= button_to 'ホームに戻る','/home/top', method: :get %></p>
 </center>
