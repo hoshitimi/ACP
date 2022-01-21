@@ -32,7 +32,7 @@ class QuestionReviewsController < ApplicationController
         format.html { redirect_to question_path(@question_review.question_code), notice: "Question review was successfully created." }
         format.json { render :show, status: :created, location: @question_review }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { redirect_to question_path(@question_review.question_code), notice: "Question review was successfully created." }
         format.json { render json: @question_review.errors, status: :unprocessable_entity }
       end
     end

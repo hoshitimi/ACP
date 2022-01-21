@@ -1,38 +1,32 @@
 <p id="notice"><%= notice %></p>
 
 <center>
-<div style="font-size:50px;"><span class="maru_waku">しつもんひろば</span></div>
+  <div style="font-size: 60px;">
+    <span class="maru_waku">しつもんひろば</span>
+  </div>
+  <p>
+    <div class='fixed_btn_r'>
+      <%= button_to '質問をする', {controller: 'questions', action: 'new'}, {method: :get } %>
+    </div>
+  </p>
 
   <%= form_tag('/questions_search') do %>
-    <p>
-    カテゴリー別に検索できます
     <br>
-    <%= select_tag 'search[category]', options_for_select(QuestionCategory.all.map { |q| [q.category_name] }, ), include_blank: true %><%= submit_tag '検索' %>
-    </p>
+    カテゴリ：<%= select_tag 'search[category]', options_for_select(QuestionCategory.all.map { |q| [q.category_name] }, ), include_blank: true %>
+    表示件数：<%= select_tag 'search[view_count]', options_for_select([["すべて",""],["5",5],["10",10],["50",50]]) %><%= submit_tag '検索' %>
+    </p><br><br>
   <% end %>
-  <p>
-    <div class='fixed_btn'>
-      <%= button_to '質問をする', {controller: 'questions', action: 'new'}, {method: :get } %>
-    </div><br>
-  </p>
-  
 
-<p>
+    <p>
       <% @questions.each do |question| %>
-        <div class="titel_font">
+        <p>
           <%= question.user_code %>
-          <%= link_to question.title, question %>
-          <%= question.category %><br>
-        </div>
+          <span class="titel_font"><%= link_to question.title, question %></span>
+          <%= question.category %><br><br>
+        </p>
       <% end %>
-</p>
+    </p>
   
 </center>
 
-<p><%= button_to 'ホームに戻る','/home/top', method: :get %></p>
-
-<center><%= paginate @questions %></center>
-
-<br>
-
-
+<p><div class="fixed_btn_l"><%= button_to 'ホームに戻る','/home/top', method: :get %></div></p>
