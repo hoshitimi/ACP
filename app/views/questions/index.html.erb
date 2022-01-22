@@ -1,10 +1,15 @@
 <p id="notice"><%= notice %></p>
 
 <center>
-  <div style="font-size: 60px;">
-    <span class="maru_waku">しつもんひろば</span>
+  <div class="questions_show_header">
+    <center>
+      <div style="font-size:50px; padding:30px;">
+        <span class="maru_waku">しつもんひろば</span>
+      </div>
+    </center>
   </div>
-  <p>
+
+  <div class="">
     <div class='fixed_btn_r'>
       <%= button_to '質問をする', {controller: 'questions', action: 'new'}, {method: :get } %>
     </div>
