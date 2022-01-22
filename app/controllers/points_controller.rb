@@ -3,7 +3,7 @@ class PointsController < ApplicationController
 
   # GET /points or /points.json
   def index
-    @points = Point.page(params[:page]).per(3).where(user_id: session[:login_id])
+    @points = Point.all.page(params[:page]).per(20).where(user_id: session[:login_id])
   end
 
   # GET /points/1 or /points/1.json

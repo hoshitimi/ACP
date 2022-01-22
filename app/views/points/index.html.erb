@@ -1,9 +1,10 @@
 <p id="notice"><%= notice %></p>
 
+<center>
 <h2>ポイント状況一覧</h2>
 <h2><%=session[:login_user_acount] %>の現在のポイント数：<%= session[:login_user_point] %></h2>
 
-<table border = "1">
+<table border = "1" class="rei">
   <thead>
     
     <tr>
@@ -26,6 +27,6 @@
   </tbody>
 </table>
 <%= paginate @points %>
-
+</center>
 <br>
-<p><%= link_to 'ホーム画面へ', home_top_path %></p>
+<p><%= button_to 'ホームに戻る','/home/top', method: :get %></p>
