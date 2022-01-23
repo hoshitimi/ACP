@@ -3,7 +3,6 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 .login{
-<<<<<<< HEAD
     margin-top: 50px;
 }
 .top{
@@ -23,7 +22,19 @@
     font-size: 20px;
     margin-top: 50px;
 }
-=======
-    float: right;
+.text{
+    margin-top: 50px;
 }
->>>>>>> 01a1d918fa1bbfa9b328bff65f36edf50c53d172
+.point{
+    display: inline-block;
+    width: 250px;
+    height: 200px;
+    border-radius: 50%;
+    background: skyblue;
+    text-align:center;
+    line-height: 200px;
+    position: relative;
+    top: 200px;
+    font-size: 100px;
+    font-family: cursive;
+}

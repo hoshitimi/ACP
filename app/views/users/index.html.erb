@@ -10,8 +10,8 @@
    </p>
  <% end %>
 
- <table border = "1">
-   <thead>
+ <table border = "1" >
+   <thead class="user2">
      <tr>
        <th>ユーザーID</th>
        <th>アカウント名</th>
@@ -21,7 +21,7 @@
      </tr>
    </thead>
 
-   <tbody>
+   <tbody class="user">
      <% @users.each do |user| %>
        <tr>
          <td><%= user.user_id %></td>
@@ -41,4 +41,4 @@
  <br>
 </center>
 <%= link_to 'ユーザーの登録', new_user_path %>
-<p><%= link_to '管理者画面へ', home_kanri_path %></p>
+<p><%= button_to '管理者画面へ','/home/kanri', method: :get %></p>

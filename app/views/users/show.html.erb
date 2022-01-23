@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<center>
 <p>
   <strong>ユーザーID:</strong>
   <%= @user.user_id %>
@@ -25,5 +25,6 @@
   <%= @user.password %>
 </p>
 
-<%= link_to '編集', edit_user_path(@user) %> |
-<%= link_to '戻る', users_path %>
+<%= link_to '編集', edit_user_path(@user) %> 
+</center>
+<%= button_to 'ユーザー一覧へ','/users', method: :get %>
