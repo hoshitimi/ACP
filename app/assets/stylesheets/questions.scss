@@ -4,14 +4,8 @@
 
 .fixed_btn_r{
     position: fixed;
-    bottom: 50px;
-    right: 50px;
-}
-
-.fixed_btn_l{
-    position: fixed;
     top: 50px;
-    left: 50px;
+    right: 50px;
 }
 
 .titel_font{
@@ -19,43 +13,118 @@
     font-size: 30px;
 }
 
-.midasi_font{
-    height: 150px;
-    font-size: 100px;
-}
-
-.button_white
-{
-    background-color: white;
-}
-
-.sikaku_waku{
-    border: solid;
-    width: 400px;
-    height: 150px;
-    overflow-wrap: break-word;
-}
-
-.b_sikaku{
-    border: solid;
-    width: 400px;
-    height: 50px;
-    overflow-wrap: break-word;
-}
-
-.c_sikaku{
-    border: solid;
-    width: 400px;
-    height: 700px;
-    overflow-wrap: break-word;
-}
-
-
-
 .maru_waku{
     height: 50px;
     width: 600px;
     border-radius: 40%;
     line-height: 50px;
     background-color:darkorange;
+}
+
+.questions_index_footer{
+    position: fixed;
+    bottom: 0;
+    left: 0px;
+    margin-bottom: 0;
+    width: 100%;
+    height: 150px;
+    background: #fff;
+    color: #000;
+}
+
+.questions_show_header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin-bottom: 0;
+    width: 100%;
+    height: 120px;
+    background: #fff;
+    color: #000;
+}
+
+.questions_show_body{
+    margin-top: 150px;
+    margin-bottom: 180px;
+}
+
+    .sikaku_waku{
+        border: solid;
+        width: 400px;
+        height: auto;
+        overflow-wrap: break-word;
+        padding: 20px;
+        border-radius: 20%;
+    }
+
+    .b_sikaku{
+        border: solid;
+        width: 400px;
+        height: 50px;
+        padding: 20px;
+        overflow-wrap: break-word;
+        border-radius: 10%;
+    }
+
+    .comment_waku{
+        border: solid;
+        height: auto;
+        padding: 5px;
+        width: 500px;
+        left: 200px;
+        bottom: 100px;
+        margin-bottom: 20px;
+    }
+
+    .c_size{
+        font-size: 25px;
+    }
+
+    .contents_size{
+        width: 800px;
+        height: 50px;
+        left: 50px;
+    }
+
+    .fixed_btn{
+        position: fixed;
+        text-align: center;
+        bottom: 0px;
+        width: 1350px;
+        padding: 30px;
+        left: 0px;
+    }
+
+    .fixed_btn_l{
+        position: fixed;
+        top: 25px;
+        left: 50px;
+    } 
+
+    .fixed_btn_l_2{
+        position: fixed;
+        top: 55px;
+        left: 50px;
+    }
+
+    .fixed_btn_r{
+        position: fixed;
+        top: 25px;
+        left: 50px;
+    } 
+
+    .button_white
+    {
+        background-color: white;
+    }
+
+.questions_show_footer{
+    position: fixed;
+    bottom: 0;
+    left: 0px;
+    margin-bottom: 0;
+    width: 100%;
+    height: 150px;
+    background: #fff;
+    color: #000;
 }

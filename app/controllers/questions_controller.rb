@@ -3,16 +3,13 @@ class QuestionsController < ApplicationController
 
   # GET /questions or /questions.json
   def index
-    @questions = Question.all.page(params[:page]).per(10)
+      @questions = Question.all.limit(0)
   end
 
   # GET /questions/1 or /questions/1.json
   def show
-    @question_reviews = QuestionReview.where(question_code: params[:id], best_flag: 0 )
+    @question_reviews = QuestionReview.where(question_code: params[:id], best_flag: 0 ).order(:created_at => "desc")
     @question_best_review = QuestionReview.find_by(question_code: params[:id], best_flag: 1)
-    logger.debug("=================")
-    logger.debug(@question_reviews.inspect)
-    logger.debug("=================")
   end
 
   # GET /questions/new
@@ -62,15 +59,6 @@ class QuestionsController < ApplicationController
     end
   end
 
-  def search
-    if params[:search][:category].present?
-      @questions = Question.where("category like '%" + params[:search][:category] + "%'").order(:created_at => "desc")
-    else
-      @questions = Question.all.order(:created_at => "desc")
-    end
-    render :index
-  end
-
   def best_answer
     @question_reviews = QuestionReview.find(params[:question_reviews][:id])
     @question_reviews.best_flag = 1
@@ -82,6 +70,20 @@ class QuestionsController < ApplicationController
     redirect_to action: :show, id: @question
 
   end
+
+  def search
+    if params[:search][:category].present?
+      @questions = Question.where("category like '%" + params[:search][:category] + "%'").order(:created_at => "desc")
+    else
+      @questions = Question.all.limit(0)
+    end
+    if params[:search][:view_count].present?
+      @questions = @questions.limit(params[:search][:view_count].to_i)
+    end
+    render :index
+
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

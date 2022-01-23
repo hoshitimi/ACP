@@ -1,21 +1,26 @@
+<div class="books_show_header">
 <p id="notice"><%= notice %></p>
 <center>
-       <h2>本の詳細</h2>
-<p>
+<h1>本の詳細</h1>
+
+<p class="center">
   <strong>書籍名:</strong>
   <%= @book.title %>
 </p>
 
-<p>
+<p class="center">
   <strong>著者名:</strong>
   <%= @book.author_name %>
 </p>
 
-<p>
+<p class="center">
   <strong>分類番号:</strong>
   <%= @book.book_number %>
 </p>
 </center>
+</div>
+
+<div class="books_show_body">
 <%=form_tag('/show') do %>
   <%= hidden_field_tag :id, @book.id %>
   <select name="sort">
@@ -37,12 +42,15 @@
   <%= form_tag('/good_add') do %>
     <%= hidden_field :good, :book_review_code, :value => c.id %>
     <p>
-    <%= submit_tag "　good" %><%= c.good %>
+    <%= submit_tag "いいね" %><%= c.good %>
     </p>
   <% end %>
   </p>
 <% end %>
+</div>
 
-<%= link_to '新規レビュー', new_book_review_path(book_id: @book.id, book_title: @book.title, book_author_name: @book.author_name, user_id: session[:login_id] ) %>
-<%= link_to '削除', edit_book_path(@book) %> | 
-<%= link_to '戻る', books_path %>
+<footer class="books_show_footer">
+<h3><%= link_to '新規レビュー', new_book_review_path(book_id: @book.id, book_title: @book.title, book_author_name: @book.author_name, user_id: session[:login_id] ) %></h3>
+<h4><%= link_to '戻る', books_path %></h4>
+</footer>
+
