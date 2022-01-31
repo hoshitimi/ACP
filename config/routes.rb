@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :question_categories
+  root 'home#login'
   get 'home/top'
   get 'home/kanri'
   get 'home/login'

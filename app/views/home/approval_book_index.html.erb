@@ -1,4 +1,5 @@
 <p id="notice"><%= notice %></p>
+<center>
 <h1>本の新規追加の承認・拒否</h1>
 
 <table border="1">
@@ -32,5 +33,5 @@
 </table>
 
 <br>
-
-<%= link_to '戻る', home_kanri_path %>
+</center>
+<p><%= button_to '管理者画面へ戻る','/home/kanri', method: :get %></p>

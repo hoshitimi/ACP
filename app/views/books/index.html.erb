@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 <center>
-<h1>本の検索</h1>
+<h1 class="font1">本の検索</h1>
 <%= form_tag('/books_search') do %>
   <p>
 書籍名 　　　　　　　　　 著者名
@@ -10,7 +10,7 @@
   <%= text_field_tag 'search[author_name]' %><%= submit_tag '検索' %>
   </p>
   <% end %>
-<table border="1">
+<table border="1" class="hyou">
   <thead>
     <tr>
       <th>書籍名</th>
