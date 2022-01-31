@@ -2,9 +2,25 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-.fixed_btn_r{
+.questions_index_header{
     position: fixed;
-    top: 50px;
+    top: 0;
+    left: 0;
+    margin-bottom: 0;
+    width: 100%;
+    height: 120px;
+    background: #fff;
+    color: #000;
+}
+
+.questions_index_body{
+    margin-top: 150px;
+    margin-bottom: 180px;
+}
+
+.fixed_btn_situ{
+    position: fixed;
+    top: 200px;
     right: 50px;
 }
 
@@ -45,6 +61,8 @@
 
 .questions_show_body{
     margin-top: 150px;
+    margin-left: 400px;
+    margin-right: 400px;
     margin-bottom: 180px;
 }
 
@@ -106,12 +124,6 @@
         top: 55px;
         left: 50px;
     }
-
-    .fixed_btn_r{
-        position: fixed;
-        top: 25px;
-        left: 50px;
-    } 
 
     .button_white
     {

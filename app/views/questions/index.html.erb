@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <center>
-  <div class="questions_show_header">
+  <div class="questions_index_header">
     <center>
       <div style="font-size:50px; padding:30px;">
         <span class="maru_waku">しつもんひろば</span>
@@ -9,8 +9,8 @@
     </center>
   </div>
 
-  <div class="">
-    <div class='fixed_btn_r'>
+  <div class="questions_index_body">
+    <div class='fixed_btn_situ'>
       <%= button_to '質問をする', {controller: 'questions', action: 'new'}, {method: :get } %>
     </div>
   </p>
@@ -18,7 +18,8 @@
   <%= form_tag('/questions_search') do %>
     <br>
     カテゴリ：<%= select_tag 'search[category]', options_for_select(QuestionCategory.all.map { |q| [q.category_name] }, ), include_blank: true %>
-    表示件数：<%= select_tag 'search[view_count]', options_for_select([["すべて",""],["5",5],["10",10],["50",50]]) %><%= submit_tag '検索' %>
+    表示件数：<%= select_tag 'search[view_count]', options_for_select([["すべて",""],["5",5],["10",10],["50",50]]) %>
+    自分の質問のみ : <%= select_tag 'search[login_id]', options_for_select([["すべて",""],[session[:login_id],session[:login_id]]])%><%= submit_tag '検索' %>
     </p><br><br>
   <% end %>
 

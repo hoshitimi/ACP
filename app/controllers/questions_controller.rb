@@ -28,7 +28,7 @@ class QuestionsController < ApplicationController
 
     respond_to do |format|
       if @question.save
-        format.html { redirect_to @question, notice: "質問が作成されました　Question was successfully created." }
+        format.html { redirect_to @question, notice: "質問が作成されました" }
         format.json { render :show, status: :created, location: @question }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -41,7 +41,7 @@ class QuestionsController < ApplicationController
   def update
     respond_to do |format|
       if @question.update(question_params)
-        format.html { redirect_to @question, notice: "質問がアップデートされました　Question was successfully updated." }
+        format.html { redirect_to @question, notice: "質問がアップデートされました" }
         format.json { render :show, status: :ok, location: @question }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -54,7 +54,7 @@ class QuestionsController < ApplicationController
   def destroy
     @question.destroy
     respond_to do |format|
-      format.html { redirect_to questions_url, notice: "質問が削除されました　Question was successfully destroyed." }
+      format.html { redirect_to questions_url, notice: "質問が削除されました" }
       format.json { head :no_content }
     end
   end
@@ -80,10 +80,12 @@ class QuestionsController < ApplicationController
     if params[:search][:view_count].present?
       @questions = @questions.limit(params[:search][:view_count].to_i)
     end
-    render :index
+    if params[:search][:login_id].present?
+      @questions = @questions.where("user_code like '%" + params[:search][:login_id] + "%'").order(:created_at => "desc")
+    end
+;    render :index
 
   end
-
 
   private
     # Use callbacks to share common setup or constraints between actions.
