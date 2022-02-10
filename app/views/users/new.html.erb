@@ -3,4 +3,5 @@
 
 <%= render 'form', user: @user %>
 </center>
-<%= link_to 'ユーザー一覧へ', users_path %>
+
+<div class="button"><%= button_to 'ユーザー一覧へ', '/users',method: :get %></div>
